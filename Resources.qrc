@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/Logo_SSD_UniMe.png</file>
+        <file>resources/Logo_UniMe.png</file>
+        <file>resources/buttonIcons/Camera.png</file>
+        <file>resources/buttonIcons/ExchangeVolleyField.png</file>
+        <file>resources/buttonIcons/GeneralSetup.png</file>
+        <file>resources/buttonIcons/Minus.png</file>
+        <file>resources/buttonIcons/New-Game-Volley.png</file>
+        <file>resources/buttonIcons/New-Set-Volley.png</file>
+        <file>resources/buttonIcons/PlaySlides.png</file>
+        <file>resources/buttonIcons/PlaySpots.png</file>
+        <file>resources/buttonIcons/Plus.png</file>
+        <file>resources/buttonIcons/sign_stop.png</file>
+        <file>resources/buttonIcons/video-display.png</file>
+        <file>resources/buttonIcons/PanelSetup.png</file>
+        <file>resources/ball0.png</file>
+        <file>resources/ball1.png</file>
+        <file>resources/myLogo.ico</file>
+        <file>resources/buttonIcons/Off.png</file>
+    </qresource>
+</RCC>
