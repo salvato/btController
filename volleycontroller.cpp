@@ -82,6 +82,7 @@ VolleyController::VolleyController(QFile *myLogFile, QWidget *parent)
 #ifdef Q_OS_ANDROID
     keepScreenOn();
 #endif
+    disableControls(true);
 }
 
 
@@ -328,6 +329,27 @@ VolleyController::CreateGameButtons() {
     gameButtonLayout->addWidget(pChangeFieldButton);
     gameButtonLayout->addStretch();
     return gameButtonLayout;
+}
+
+
+void
+VolleyController::disableControls(bool bDisable) {
+    for(int iTeam=0; iTeam<2; iTeam++) {
+        pTeamName[iTeam]->setDisabled(bDisable);
+        pScoreDecrement[iTeam]->setDisabled(bDisable);
+        pScoreEdit[iTeam]->setDisabled(bDisable);
+        pScoreIncrement[iTeam]->setDisabled(bDisable);
+        pService[iTeam]->setDisabled(bDisable);
+        pSetsDecrement[iTeam]->setDisabled(bDisable);
+        pSetsEdit[iTeam]->setDisabled(bDisable);
+        pSetsIncrement[iTeam]->setDisabled(bDisable);
+        pTimeoutDecrement[iTeam]->setDisabled(bDisable);
+        pTimeoutEdit[iTeam]->setDisabled(bDisable);
+        pTimeoutIncrement[iTeam]->setDisabled(bDisable);
+    }
+    pChangeFieldButton->setDisabled(bDisable);
+    pNewSetButton->setDisabled(bDisable);
+    disableMyControls(bDisable);
 }
 
 

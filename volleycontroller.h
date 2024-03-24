@@ -68,6 +68,7 @@ private slots:
 
 private:
     void          buildControls();
+    void          disableControls(bool bDisable);
     void          setEventHandlers();
     void          logScore();
     bool          prepareScoreFile();

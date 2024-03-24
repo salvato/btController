@@ -54,6 +54,8 @@ protected:
     void            stopBtDiscovery();
     virtual void    processTextMessage(QString sMessage);
     void            processGeneralMessages(QString sMessage);
+    void            disableMyControls(bool bDisable);
+    virtual void    disableControls(bool bDisable);
 
 protected:
     GeneralSetupArguments gsArgs;

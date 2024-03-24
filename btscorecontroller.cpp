@@ -41,7 +41,6 @@ BtScoreController::BtScoreController(QFile *myLogFile, QWidget *parent)
     initBluetooth();
     try2ConnectBt();
 
-    setDisabled(true);
     myStatus = showPanel;
 }
 
@@ -134,6 +133,21 @@ BtScoreController::connectButtonSignals() {
 }
 
 
+void
+BtScoreController::disableControls(bool bDisable) {
+    (void)bDisable;
+}
+
+
+void
+BtScoreController::disableMyControls(bool bDisable) {
+    pSpotButton->setDisabled(bDisable);
+    pSlideShowButton->setDisabled(bDisable);
+    pGeneralSetupButton->setDisabled(bDisable);
+    pSwitchOffButton->setDisabled(bDisable);
+}
+
+
 // Dummy... see Volley Panel
 void
 BtScoreController::GeneralSetup() {
@@ -196,7 +210,6 @@ BtScoreController::try2ConnectBt() {
         pTempClient->deleteLater();
         pTempClient = nullptr;
     }
-    QBluetoothServiceInfo serviceInfo;
     QBluetoothAddress address(pSettings->value("ServerAddress", "").toString());
     QBluetoothUuid uuid(pSettings->value("ServerUUID", "").toString());
     if((!address.isNull()) && (!uuid.isNull())) {
@@ -316,7 +329,7 @@ BtScoreController::onPanelClientConnected(QString sName) {
     Q_UNUSED(sName)
     stopBtDiscovery();
     pPanelClient = pTempClient;
-    setEnabled(true);
+    disableControls(false);
     update();
     connect(pPanelClient, SIGNAL(disconnected()),
             this, SLOT(onPanelClientDisconnected()));
@@ -330,7 +343,7 @@ BtScoreController::onPanelClientConnected(QString sName) {
 void
 BtScoreController::onPanelClientDisconnected() {
     //qCritical() << __FUNCTION__;
-    setDisabled(true);
+    disableControls(true);
     if(pPanelClient) {
         pPanelClient->disconnect();
         pPanelClient->deleteLater();
@@ -344,7 +357,7 @@ void
 BtScoreController::onPanelClientSocketError(QString sError) {
     //qCritical() << __FUNCTION__;
     Q_UNUSED(sError)
-    setDisabled(true);
+    disableControls(true);
     if(pPanelClient) {
         pPanelClient->disconnect();
         pPanelClient->deleteLater();
