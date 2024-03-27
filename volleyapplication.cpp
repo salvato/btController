@@ -36,7 +36,7 @@ VolleyApplication::VolleyApplication(int &argc, char **argv)
 
     pScoreController = new VolleyController(pLogFile);
 #ifdef Q_OS_ANDROID
-    pScoreController->showFullScreen();
+    pScoreController->show();
 #else
     pScoreController->showNormal();
 #endif

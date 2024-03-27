@@ -18,5 +18,6 @@
         <file>resources/ball1.png</file>
         <file>resources/myLogo.ico</file>
         <file>resources/buttonIcons/Off.png</file>
+        <file>resources/Splash.png</file>
     </qresource>
 </RCC>
